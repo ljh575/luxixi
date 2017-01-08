@@ -18,10 +18,7 @@ RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 RUN wget luxixi.cc/download/ss.sh
 RUN sh ss.sh
 
-EXPOSE 10575
+EXPOSE 22 10575
 
-RUN /etc/init.d/shadowsocks-libev restart
-
-EXPOSE 22
-
+ENTRYPOINT    ["/etc/init.d/shadowsocks-libev", "restart"]
 CMD    ["/usr/sbin/sshd", "-D"]
