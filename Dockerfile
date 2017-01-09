@@ -5,7 +5,7 @@ RUN locale-gen en_US.UTF-8
 RUN /bin/ln -sfT /bin/bash /bin/sh
 
 RUN apt-get update
-RUN apt-get install -y --force-yes openssh-server wget 
+RUN apt-get install -y --force-yes openssh-server wget  git
 
 RUN mkdir /var/run/sshd
 
