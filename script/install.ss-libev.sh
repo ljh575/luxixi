@@ -53,8 +53,9 @@ git clone https://github.com/madeye/shadowsocks-libev.git
 #compile install
 cd shadowsocks-libev
 
-if [[ $# -ge 2 ]] ; then
-    git reset --hard $2
+if [[ $# -ge 1 ]] ; then
+    echo "git reset --hard $1"
+    git reset --hard $1
 fi 
 ./configure --prefix=/usr --disable-documentation
 make && make install
@@ -134,7 +135,7 @@ action=$1
 [  -z $1 ] && action=install
 case "$action" in
 install)
-    install_shadowsocks_tennfy
+    install_shadowsocks_tennfy $2
     ;;
 uninstall)
     uninstall_shadowsocks_tennfy
