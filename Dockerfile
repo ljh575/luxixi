@@ -15,10 +15,20 @@ RUN sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 
 
+## install ss-libev
 RUN wget luxixi.cc/download/ss.sh
 RUN sh ss.sh
 
 
+## install net_speeder
+RUN wget https://github.com/snooda/net-speeder/archive/master.zip
+RUN unzip master.zip 
+RUN cd net-speeder-master && sh build.sh -DCOOKED
+RUN cp net_speeder / && cd /
+
+
+
+## create start script
 RUN echo "#!/bin/sh" > runit.sh
 RUN echo "service shadowsocks-libev restart" >> runit.sh
 RUN echo "/usr/sbin/sshd -D" >> runit.sh
