@@ -64,7 +64,7 @@ cp ./debian/shadowsocks-libev.default /etc/default/shadowsocks-libev
 chmod +x /etc/init.d/shadowsocks-libev
 
 ## config
-wget --no-check-certificate https://github.com/ljh575/luxixi/blob/master/files/ssconfig.jscon
+wget --no-check-certificate https://github.com/ljh575/luxixi/raw/master/files/ssconfig.json
 cat ssconfig.json > /etc/shadowsocks-libev/config.json
 
 
