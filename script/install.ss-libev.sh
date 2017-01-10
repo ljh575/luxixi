@@ -59,6 +59,12 @@ if [[ $# -ge 1 ]] ; then
 fi 
 ./configure --prefix=/usr --disable-documentation
 make && make install
+
+if [ $? -ne 0 ] ; then
+    echo "shadowsocks compile/install failed"
+    exit 
+fi
+
 mkdir -p /etc/shadowsocks-libev
 cp ./debian/shadowsocks-libev.init /etc/init.d/shadowsocks-libev
 cp ./debian/shadowsocks-libev.default /etc/default/shadowsocks-libev
