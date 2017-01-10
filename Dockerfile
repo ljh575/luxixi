@@ -1,4 +1,5 @@
-FROM  ubuntu:14.04
+#FROM  ubuntu:14.04
+FROM  saltstack/ubuntu-14.04-minimal
 
 ENV GITHUB  https://github.com/ljh575/luxixi/raw/master
 
