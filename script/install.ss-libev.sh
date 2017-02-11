@@ -45,7 +45,8 @@ cd $INSTALL_TMP
 
 # install
 apt-get update
-apt-get install -y --force-yes build-essential autoconf libtool libssl-dev git curl  xmlto libpcre3 libpcre3-dev wget
+apt-get install -y --force-yes build-essential autoconf libtool libssl-dev git curl  xmlto libpcre3
+apt-get install -y --force-yes libpcre3-dev wget libmbedtls-dev libudns-dev libev-dev
 
 #download source code
 git clone https://github.com/madeye/shadowsocks-libev.git
@@ -53,10 +54,15 @@ git clone https://github.com/madeye/shadowsocks-libev.git
 #compile install
 cd shadowsocks-libev
 
+if [[ ! -f configure ]] ; then
+    sh autogen.sh
+fi
+
 if [[ $# -ge 1 ]] ; then
     echo "git reset --hard $1"
     git reset --hard $1
 fi 
+
 ./configure --prefix=/usr --disable-documentation
 make && make install
 

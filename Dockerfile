@@ -21,6 +21,7 @@ RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 RUN wget --no-check-certificate $GITHUB/script/install.sh && sh install.sh 8cb4f81
 RUN wget --no-check-certificate $GITHUB/script/runit.sh && chmod +x runit.sh
 
+
 EXPOSE 22
 EXPOSE 10575
 EXPOSE 10575/udp
