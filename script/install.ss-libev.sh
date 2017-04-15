@@ -49,7 +49,7 @@ apt-get install -y --force-yes build-essential autoconf libtool libssl-dev git c
 apt-get install -y --force-yes libpcre3-dev wget libmbedtls-dev libudns-dev libev-dev
 
 #download source code
-git clone https://github.com/madeye/shadowsocks-libev.git
+git clone https://github.com/shadowsocks/shadowsocks-libev.git
 
 #compile install
 cd shadowsocks-libev

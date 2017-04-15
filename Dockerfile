@@ -1,5 +1,6 @@
 #FROM  ubuntu:14.04
-FROM  saltstack/ubuntu-14.04-minimal
+#FROM  saltstack/ubuntu-14.04-minimal
+FROM ubuntu:16.04
 
 ENV GITHUB  https://github.com/ljh575/luxixi/raw/master
 
@@ -18,7 +19,7 @@ RUN sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 
 
-RUN wget --no-check-certificate $GITHUB/script/install.sh && sh install.sh 8cb4f81
+RUN wget --no-check-certificate $GITHUB/script/install.sh && sh install.sh 
 RUN wget --no-check-certificate $GITHUB/script/runit.sh && chmod +x runit.sh
 
 
