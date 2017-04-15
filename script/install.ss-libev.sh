@@ -6,16 +6,6 @@
 #   Intro:  http://www.tennfy.com
 #===============================================================================================
 
-clear
-echo "#############################################################"
-echo "# Install Shadowsocks(libev) for Debian or Ubuntu (32bit/64bit)"
-echo "# Intro: http://www.tennfy.com"
-echo "#"
-echo "# Author: tennfy <admin@tennfy.com>"
-echo "#"
-echo "#############################################################"
-echo ""
-
 function check_sanity {
 	# Do some sanity checking.
 	if [ $(/usr/bin/id -u) != "0" ]
@@ -45,8 +35,12 @@ cd $INSTALL_TMP
 
 # install
 apt-get update
-apt-get install -y --force-yes build-essential autoconf libtool libssl-dev git curl  xmlto libpcre3
-apt-get install -y --force-yes libpcre3-dev wget libmbedtls-dev libudns-dev libev-dev
+apt-get install -y --force-yes git curl wget 
+apt-get install -y --force-yes build-essential autoconf libtool libssl-dev  xmlto
+apt-get install -y --force-yes libpcre3 libpcre3-dev
+apt-get install -y --force-yes libudns-dev libev-dev
+apt-get install -y --force-yes libmbedtls-dev 
+apt-get install -y --force-yes libsodium-dev
 
 #download source code
 git clone https://github.com/shadowsocks/shadowsocks-libev.git
