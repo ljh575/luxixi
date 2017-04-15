@@ -34,15 +34,15 @@ function install_shadowsocks_tennfy(){
 cd $INSTALL_TMP
 
 # install
-apt-get update
-apt-get install --no-install-recommends -y --force-yes git curl wget 
-apt-get install --no-install-recommends -y --force-yes build-essential autoconf libtool libssl-dev  xmlto
-apt-get install --no-install-recommends -y --force-yes libpcre3 libpcre3-dev
-apt-get install --no-install-recommends -y --force-yes libudns-dev libev-dev
-apt-get install --no-install-recommends -y --force-yes libmbedtls-dev 
-apt-get install --no-install-recommends -y --force-yes libsodium-dev
+apt-get update && apt-get install --no-install-recommends -y \
+    git curl wget  build-essential \
+    autoconf libtool libssl-dev  xmlto \
+    libpcre3 libpcre3-dev libudns-dev libev-dev \
+    libmbedtls-dev libsodium-dev
 
 #download source code
+echo "================================"
+echo "git clone https://github.com/shadowsocks/shadowsocks-libev.git"
 git clone https://github.com/shadowsocks/shadowsocks-libev.git
 
 #compile install

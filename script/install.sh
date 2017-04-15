@@ -9,8 +9,7 @@ INSTALL_TMP=/tmp/install.tmp
 mkdir -p $INSTALL_TMP
 cd $INSTALL_TMP
 
-apt-get update
-apt-get --no-install-recommends -y --force-yes install wget
+apt-get update && apt-get --no-install-recommends -y install wget
 
 rm $INSTALL_TMP/install.ss-libev.sh*
 wget --no-check-certificate $GITHUB/script/install.ss-libev.sh

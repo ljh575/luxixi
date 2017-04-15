@@ -3,12 +3,9 @@ FROM ubuntu:latest
 
 ENV GITHUB  https://github.com/ljh575/luxixi/raw/master
 
-#RUN locale-gen en_US.UTF-8
-
 RUN /bin/ln -sfT /bin/bash /bin/sh
 
-RUN apt-get update
-RUN apt-get install --no-install-recommends -y --force-yes openssh-server wget  git
+RUN apt-get update && apt-get install --no-install-recommends -y openssh-server wget  git
 
 RUN mkdir /var/run/sshd
 
