@@ -1,6 +1,6 @@
 #!/bin/sh
 
-locale-gen en_US.UTF-8
+#locale-gen en_US.UTF-8
 /bin/ln -sfT /bin/bash /bin/sh
 
 GITHUB="https://github.com/ljh575/luxixi/raw/master"
