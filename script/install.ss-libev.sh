@@ -35,7 +35,7 @@ cd $INSTALL_TMP
 
 # install
 apt-get update && apt-get install --no-install-recommends -y \
-    git curl wget  build-essential \
+    git curl wget  build-essential automake \
     autoconf libtool libssl-dev  xmlto \
     libpcre3 libpcre3-dev libudns-dev libev-dev \
     libmbedtls-dev libsodium-dev

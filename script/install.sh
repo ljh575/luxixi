@@ -11,7 +11,7 @@ cd $INSTALL_TMP
 
 apt-get update && apt-get --no-install-recommends -y install wget
 
-rm $INSTALL_TMP/install.ss-libev.sh*
+/bin/rm -fr $INSTALL_TMP/install.ss-libev.sh*
 wget --no-check-certificate $GITHUB/script/install.ss-libev.sh
 
 if [[ -f install.ss-libev.sh ]] ; then
@@ -21,7 +21,7 @@ else
     echo "wget install.ss-libev.sh failed"
 fi
 
-rm $INSTALL_TMP/install.netspeeder.sh*
+/bin/rm -fr $INSTALL_TMP/install.netspeeder.sh*
 wget --no-check-certificate $GITHUB/script/install.netspeeder.sh
 
 if [[ -f install.netspeeder.sh ]] ; then
