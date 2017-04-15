@@ -4,7 +4,7 @@ FROM ubuntu:16.04
 
 ENV GITHUB  https://github.com/ljh575/luxixi/raw/master
 
-RUN locale-gen en_US.UTF-8
+#RUN locale-gen en_US.UTF-8
 
 RUN /bin/ln -sfT /bin/bash /bin/sh
 
