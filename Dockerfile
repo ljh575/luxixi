@@ -6,6 +6,7 @@ ENV GITHUB  https://github.com/ljh575/luxixi/raw/master
 RUN /bin/ln -sfT /bin/bash /bin/sh
 
 RUN apt-get update && apt-get install --no-install-recommends -y openssh-server wget  git
+RUN git config --global http.sslVerify false
 
 RUN mkdir /var/run/sshd
 
