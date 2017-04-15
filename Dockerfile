@@ -1,6 +1,5 @@
 #FROM  ubuntu:14.04
-#FROM  saltstack/ubuntu-14.04-minimal
-FROM ubuntu:16.04
+FROM ubuntu:latest
 
 ENV GITHUB  https://github.com/ljh575/luxixi/raw/master
 
@@ -9,7 +8,7 @@ ENV GITHUB  https://github.com/ljh575/luxixi/raw/master
 RUN /bin/ln -sfT /bin/bash /bin/sh
 
 RUN apt-get update
-RUN apt-get install -y --force-yes openssh-server wget  git
+RUN apt-get install --no-install-recommends -y --force-yes openssh-server wget  git
 
 RUN mkdir /var/run/sshd
 

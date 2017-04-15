@@ -35,18 +35,21 @@ cd $INSTALL_TMP
 
 # install
 apt-get update
-apt-get install -y --force-yes git curl wget 
-apt-get install -y --force-yes build-essential autoconf libtool libssl-dev  xmlto
-apt-get install -y --force-yes libpcre3 libpcre3-dev
-apt-get install -y --force-yes libudns-dev libev-dev
-apt-get install -y --force-yes libmbedtls-dev 
-apt-get install -y --force-yes libsodium-dev
+apt-get install --no-install-recommends -y --force-yes git curl wget 
+apt-get install --no-install-recommends -y --force-yes build-essential autoconf libtool libssl-dev  xmlto
+apt-get install --no-install-recommends -y --force-yes libpcre3 libpcre3-dev
+apt-get install --no-install-recommends -y --force-yes libudns-dev libev-dev
+apt-get install --no-install-recommends -y --force-yes libmbedtls-dev 
+apt-get install --no-install-recommends -y --force-yes libsodium-dev
 
 #download source code
 git clone https://github.com/shadowsocks/shadowsocks-libev.git
 
 #compile install
 cd shadowsocks-libev
+
+## get submodule
+git submodule update --init --recursive
 
 if [[ ! -f configure ]] ; then
     sh autogen.sh

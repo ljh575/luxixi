@@ -11,9 +11,9 @@ printf "Version 0.1 \n"
 
 apt-get update
 
-apt-get -y --force-yes install libnet1 libpcap0.8 
-apt-get -y --force-yes install libnet1-dev libpcap0.8-dev
-apt-get -y --force-yes install gcc
+apt-get --no-install-recommends -y --force-yes install libnet1 libpcap0.8 
+apt-get --no-install-recommends -y --force-yes install libnet1-dev libpcap0.8-dev
+apt-get --no-install-recommends -y --force-yes install gcc
 
 INSTALL_TMP=/tmp/install.tmp/install.netspeeder
 
