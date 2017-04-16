@@ -9,7 +9,7 @@ echo "=========================================================================\
 printf "Auto install net-speeder on your vps,written by tennfy \n"
 printf "Version 0.1 \n"
 
-apt-get update && apt-get --no-install-recommends -y \
+apt-get update && apt-get install --no-install-recommends -y \
     gcc libnet1 libpcap0.8  \
     libnet1-dev libpcap0.8-dev
 

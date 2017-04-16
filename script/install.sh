@@ -21,14 +21,14 @@ else
     echo "wget install.ss-libev.sh failed"
 fi
 
-/bin/rm -fr $INSTALL_TMP/install.netspeeder.sh*
-wget --no-check-certificate $GITHUB/script/install.netspeeder.sh
-
-if [[ -f install.netspeeder.sh ]] ; then
-    sh install.netspeeder.sh
-    echo "install.netspeeder done!"
-else
-    echo "wget install.netspeeder.sh failed"
-fi
+# /bin/rm -fr $INSTALL_TMP/install.netspeeder.sh*
+# wget --no-check-certificate $GITHUB/script/install.netspeeder.sh
+# 
+# if [[ -f install.netspeeder.sh ]] ; then
+#     sh install.netspeeder.sh
+#     echo "install.netspeeder done!"
+# else
+#     echo "wget install.netspeeder.sh failed"
+# fi
 
 
