@@ -24,7 +24,7 @@ function die {
 	exit 1
 }
 
-INSTALL_TMP=/tmp/install.tmp/install.ss-libev
+INSTALL_TMP=$HOME/install.ss-libev
 
 rm -rf $INSTALL_TMP
 mkdir -p $INSTALL_TMP
@@ -34,11 +34,20 @@ function install_shadowsocks_tennfy(){
 cd $INSTALL_TMP
 
 # install
-apt-get update && apt-get install --no-install-recommends -y \
+apt-get update 
+apt-get install --no-install-recommends -y autoconf libtool shtool
+apt-get install --no-install-recommends -y \
     git curl wget  build-essential automake \
-    autoconf libtool libssl-dev  xmlto \
+    autoconf libtool libssl-dev  xmlto shtool \
     libpcre3 libpcre3-dev libudns-dev libev-dev \
-    libmbedtls-dev libsodium-dev
+    libmbedtls-dev libsodium-dev  libc-ares-dev libsodium18
+
+if [[ -f /usr/lib/x86_64-linux-gnu/libsodium.so.18 ]] ; then
+    \ln -sfT /usr/lib/x86_64-linux-gnu/libsodium.so.18 /usr/lib/x86_64-linux-gnu/libsodium.so
+fi
+if [[ -f /usr/lib/libsodium.so.18 ]] ; then
+    \ln -sfT /usr/lib/libsodium.so.18 /usr/lib/libsodium.so
+fi
 
 #download source code
 echo "================================"
@@ -53,6 +62,13 @@ git submodule update --init --recursive
 
 if [[ ! -f configure ]] ; then
     sh autogen.sh
+    if [ $? -ne 0 ] ; then
+        libtoolize --force
+        aclocal
+        autoheader
+        automake --force-missing --add-missing
+        autoconf
+    fi
 fi
 
 if [[ $# -ge 1 ]] ; then
